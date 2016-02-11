@@ -1,0 +1,20 @@
+app:
+  build: .
+  command: ruby app.rb
+  ports:
+    - "4567"
+  links:
+    - neo4j
+  volumes:
+    - ".:/app"
+  environment:
+    VIRTUAL_HOST: graph.docker
+
+neo4j:
+  image: neo4j:latest
+  ports:
+    - "7474"
+  environment:
+    VIRTUAL_HOST: neo4j.docker
+    VIRTUAL_PORT: 7474
+    NEO4J_AUTH: none
