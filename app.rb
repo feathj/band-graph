@@ -33,7 +33,7 @@ class WebApp < Sinatra::Base
 
   # Crawler / Scraper #################################################
   def crawl_music_pages(base_ref, max_recursion)
-    crawl_music_pages_helper(base_ref, 0, max_recursion, set.New())
+    crawl_music_pages_helper(base_ref, 0, max_recursion, Set.new())
   end
 
   def crawl_music_pages_helper(ref, level, max_recursion, indexed)
